@@ -2,9 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.gcloud/
 # C extensions
 *.so
+
+/bigquery/tasks/
 
 # Distribution / packaging
 .Python

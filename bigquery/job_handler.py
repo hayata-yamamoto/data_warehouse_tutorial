@@ -27,7 +27,7 @@ def load_from_cloud_storage_uri(source_uri: str,
         skip_leading_rows (int) : how many rows are skipped.
 
     Returns:
-        job result
+        bigquery.LoadJob : job result
     """
 
     # setup credential and client.

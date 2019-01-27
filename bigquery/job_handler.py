@@ -31,9 +31,9 @@ def load_from_cloud_storage_uri(source_uri: str,
     """
 
     # setup credential and client.
-    credentials = Credentials.from_service_account_file(credential)
+    credentials = Credentials.from_service_account_file(filename=credential)
     client = bigquery.Client(project=project, credentials=credentials)
-    dataset_ref = client.dataset(dataset)
+    dataset_ref = client.dataset(dataset_id=dataset)
 
     # edit configuration
     # TODO: make more editable.

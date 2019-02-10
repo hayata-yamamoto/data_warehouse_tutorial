@@ -12,16 +12,16 @@ class MySQL:
             password: str,
             database: str,
             autocommit: bool = True,
-            local_infile: int = 1):
+            local_infile: Union[int, bool] = 1):
         """
 
         Args:
-            host:
-            user:
-            password:
-            database:
-            autocommit:
-            local_infile:
+            host (str) :
+            user (str) :
+            password (str) :
+            database (str) :
+            autocommit (bool) :
+            local_infile (int or bool) :
         """
         self.connection = pymysql.connect(
             host=host,

@@ -6,7 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
-/bigquery/tasks/
+/data/
 
 # Distribution / packaging
 .Python

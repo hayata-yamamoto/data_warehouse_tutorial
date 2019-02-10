@@ -25,12 +25,19 @@ data_warehouse_tutorial/
 └── src
     ├── cmd
     │   ├── bigquery
+    │   │   └── __init__.py
     │   └── mysql
+    │       ├── __init__.py
     │       └── import_csv.py
     └── model
+        ├── __init__.py
         ├── bigquery
+        │   ├── __init__.py
         │   └── bigquery.py
         └── mysql
-            ├── create_database.sql
-            └── load.py
+            ├── __init__.py
+            ├── home_credit.sql
+            └── mysql.py
+
+9 directories, 18 files
 ```

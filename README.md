@@ -20,8 +20,7 @@ data_warehouse_tutorial/
 │       ├── credit_card_balance.csv
 │       ├── installments_payments.csv
 │       ├── pos_cash_balance.csv
-│       ├── previous_application.csv
-│       └── sample_submission.csv
+│       └── previous_application.csv
 └── src
     ├── cmd
     │   ├── bigquery
@@ -39,5 +38,5 @@ data_warehouse_tutorial/
             ├── home_credit.sql
             └── mysql.py
 
-9 directories, 18 files
+9 directories, 17 files
 ```

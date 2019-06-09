@@ -1,0 +1,17 @@
+[
+  {
+    "name": "id",
+    "field_type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "transcript",
+    "field_type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "url",
+    "field_type": "STRING",
+    "mode": "REQUIRED"
+  }
+]

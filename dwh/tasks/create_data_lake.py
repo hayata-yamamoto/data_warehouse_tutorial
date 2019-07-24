@@ -26,7 +26,7 @@ def main() -> None:
         #############
         with open(fp, 'r') as f:
             df = pd.read_sql(f.read(), mysql)
-        logging.info('extract')
+        logging.info('extract from mysql')
 
         #############
         # Data Lake

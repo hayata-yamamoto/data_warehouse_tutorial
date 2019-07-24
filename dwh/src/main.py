@@ -56,8 +56,9 @@ def main() -> None:
         #############
         # upload schemas
         #############
-        json_config = load_json(str(PathManger.SCHEMAS / f"{table_name}.json"))
-        gcs.upload_from_file(bkt, f"schemas/{table_name}.json", f"{table_name}.json", delete_file=False)
+        j = str(PathManger.SCHEMAS / f"{table_name}.json")
+        json_config = load_json(j)
+        gcs.upload_from_file(bkt, f'schemas/{table_name}.json', j, delete_file=False)
         logging.info('upload schema file')
 
         # Create SchemaFields

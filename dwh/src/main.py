@@ -1,7 +1,6 @@
 import ast
 
 import pandas as pd
-from google.cloud import bigquery
 
 from dwh.src.data import rdb, gcs, bq
 from dwh.src.path_manager import PathManger

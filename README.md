@@ -16,6 +16,6 @@ The purpose is sharing source codes are shown in my article on note.mu
     ├── schemas    # BQ Schemas
     ├── sql        # Extract SQL Path
     ├── src        # Modules Path
-    │   └── data  # Data Handling
+    │   └── data   # Data Handling
     └── tasks      # Execution Path 
 ```

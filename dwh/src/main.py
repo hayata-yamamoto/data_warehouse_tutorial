@@ -1,4 +1,5 @@
 import ast
+import logging
 
 import pandas as pd
 
@@ -14,6 +15,7 @@ def main() -> None:
 
     bq_client = bq.client()
     bq_dataset = bq.dataset(bq_client)
+    logging.basicConfig(level=logging.INFO)
 
     fps = PathManger.get_sql()
     for fp in fps:
@@ -24,12 +26,14 @@ def main() -> None:
         #############
         with open(fp, 'r') as f:
             df = pd.read_sql(f.read(), mysql)
+        logging.info('extract')
 
         #############
         # Data Lake
         #############
         df.to_csv(f"{table_name}.csv", index=False)
         gcs.upload_from_file(bkt, f"raw/{table_name}.csv", f"{table_name}.csv")
+        logging.info('upload csv')
 
         #############
         # Transform
@@ -47,12 +51,14 @@ def main() -> None:
         #############
         df.to_json(f"{table_name}.json", orient="records", lines=True)
         uri = gcs.upload_from_file(bkt, f"processed/{table_name}.json", f"{table_name}.json")
+        logging.info('upload transformed json')
 
         #############
         # upload schemas
         #############
-        json_config = load_json(f"schemas/{table_name}.json")
+        json_config = load_json(str(PathManger.SCHEMAS / f"{table_name}.json"))
         gcs.upload_from_file(bkt, f"schemas/{table_name}.json", f"{table_name}.json", delete_file=False)
+        logging.info('upload schema file')
 
         # Create SchemaFields
         schemas = bq.schema_fields(json_config)
@@ -61,6 +67,7 @@ def main() -> None:
             destination=bq_dataset.table(table_name),
             uri=uri,
             schema=schemas)
+        logging.info('start ingest job')
 
 
 if __name__ == "__main__":

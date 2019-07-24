@@ -6,7 +6,7 @@ from dwh.src.config import MySQL
 
 def mysql() -> engine.Engine:
     return create_engine(
-        f"mysql://{MySQL.host}:{MySQL.password}@{MySQL.host}:{MySQL.port}/{MySQL.database}"
+        f"mysql://{MySQL.user}:{MySQL.password}@{MySQL.host}:{MySQL.port}/{MySQL.database}"
     )
 
 

@@ -13,6 +13,5 @@ class MySQL:
 
 @dataclass(frozen=True)
 class GCP:
-    project_id: ClassVar[str] = 'bigquery-tutorial-229808'
     bucket: ClassVar[str] = 'ted_talks'
     dataset_id: ClassVar[str] = 'ted_talks'

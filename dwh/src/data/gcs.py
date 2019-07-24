@@ -5,7 +5,7 @@ from dwh.src.config import GCP
 
 
 def client() -> storage.Client:
-    return storage.Client(project=GCP.project_id)
+    return storage.Client()
 
 
 def bucket(cl: storage.Client) -> storage.Bucket:

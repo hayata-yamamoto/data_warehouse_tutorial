@@ -6,7 +6,7 @@ from dwh.src.config import GCP
 
 
 def client() -> bigquery.Client:
-    return bigquery.Client(project=GCP.project_id)
+    return bigquery.Client()
 
 
 def dataset(cl: bigquery.Client) -> bigquery.Dataset:

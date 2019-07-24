@@ -24,7 +24,7 @@ def schema_fields(config: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 def ingest_by_uri(cl: bigquery.Client, destination: str, uri: str,
-                  schema: List[bigquery.SchemaField]) -> bigquery.LoadJob:
+                  schema: List[Any]) -> bigquery.LoadJob:
     c = bigquery.LoadJobConfig(
         source_format="NEWLINE_DELIMITED_JSON",
         write_disposition="WRITE_TRUNCATE",

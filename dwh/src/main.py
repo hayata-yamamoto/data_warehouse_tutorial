@@ -47,7 +47,7 @@ def main() -> None:
         # Save Transformed Data
         #############
         df.to_json(f"{table_name}.json", orient="records", lines=True)
-        gcs.upload_from_file(bkt, f"processed/{table_name}.json", f"{table_name}.json")
+        uri = gcs.upload_from_file(bkt, f"processed/{table_name}.json", f"{table_name}.json")
 
         #############
         # upload schemas
@@ -56,21 +56,12 @@ def main() -> None:
         gcs.upload_from_file(bkt, f"schemas/{table_name}.json", f"{table_name}.json", delete_file=False)
 
         # Create SchemaFields
-        config = bq.schema_fields(json_config)
-        bq.ingest_by_uri(cl=bq_client, destination=bq_dataset.table(table_name), uri=f'gs://{bkt.name}')
-
-        # Load to BQ
-        bq.ingest_by_uri(bq_client, bq_dataset.table(table_name), uri=)
-        config = bigquery.LoadJobConfig(
-            source_format="NEWLINE_DELIMITED_JSON",
-            write_disposition="WRITE_TRUNCATE",
-            schema=config,
-        )
-        bq.load_table_from_uri(
-            blob.public_url,
-            destination=dataset.table(f"{table_name}"),
-            job_config=config,
-        )
+        schemas = bq.schema_fields(json_config)
+        bq.ingest_by_uri(
+            cl=bq_client,
+            destination=bq_dataset.table(table_name),
+            uri=uri,
+            schema=schemas)
 
 
 if __name__ == "__main__":

@@ -17,7 +17,7 @@ def main() -> None:
     bq_dataset = bq.dataset(bq_client)
     logging.basicConfig(level=logging.INFO)
 
-    fps = PathManger.get_sql()
+    fps = PathManger.get_sqls()
     for fp in fps:
         table_name = fp.stem
 

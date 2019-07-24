@@ -12,7 +12,7 @@ class PathManger:
     TASKS: Path = BASE / "tasks"
 
     @staticmethod
-    def get_sql() -> List[Path]:
+    def get_sqls() -> List[Path]:
         return [p for p in PathManger.SQL.iterdir()]
 
     @staticmethod

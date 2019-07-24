@@ -61,7 +61,9 @@ def main() -> None:
         gcs.upload_from_file(bkt, f'schemas/{table_name}.json', j, delete_file=False)
         logging.info('upload schema file')
 
-        # Create SchemaFields
+        #############
+        # BQ load
+        #############
         schemas = bq.schema_fields(json_config)
         bq.ingest_by_uri(
             cl=bq_client,

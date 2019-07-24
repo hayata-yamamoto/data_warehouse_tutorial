@@ -9,34 +9,13 @@ The purpose is sharing source codes are shown in my article on note.mu
 - [Python job handling](https://note.mu/hayata_yamamoto/n/n9623a254fea0)
 
 ## Structure
-```text
-data_warehouse_tutorial/
-├── README.md
-├── data
-│   └── raw
-│       ├── application_train.csv
-│       ├── bureau.csv
-│       ├── bureau_balance.csv
-│       ├── credit_card_balance.csv
-│       ├── installments_payments.csv
-│       ├── pos_cash_balance.csv
-│       └── previous_application.csv
-└── src
-    ├── cmd
-    │   ├── bigquery
-    │   │   └── __init__.py
-    │   └── mysql
-    │       ├── __init__.py
-    │       └── import_csv.py
-    └── model
-        ├── __init__.py
-        ├── bigquery
-        │   ├── __init__.py
-        │   └── bigquery.py
-        └── mysql
-            ├── __init__.py
-            ├── home_credit.sql
-            └── mysql.py
-
-9 directories, 17 files
+```markdown
+.
+├── data           # Raw Data
+└── dwh
+    ├── schemas    # BQ Schemas
+    ├── sql        # Extract SQL Path
+    ├── src        # Modules Path
+    │   └── data  # Data Handling
+    └── tasks      # Execution Path 
 ```
